@@ -101,3 +101,104 @@ public class Main {
         System.out.println(fahrenheit + " degree Fahrenheit is equal to " + celsius + " in Celsius");
     }
 }
+
+//(2)Exercise 1//
+package work;
+
+import java.util.Arrays;
+public class Main {
+    public static void main(String[] args){
+
+        int[] my_array1 = {
+                1789, 2035, 1899, 1456, 2013,
+                1458, 2458, 1254, 1472, 2365,
+                1456, 2165, 1457, 2456};
+
+        String[] my_array2 = {
+                "Pizza",
+
+                "Bacon",
+                "Apple",
+                "Burgers",
+                "French fries",
+                "Cereal"
+        };
+        System.out.println("Original numeric array : "+Arrays.toString(my_array1));
+        Arrays.sort(my_array1);
+        System.out.println("Sorted numeric array : "+Arrays.toString(my_array1));
+
+        System.out.println("Original string array : "+Arrays.toString(my_array2));
+        Arrays.sort(my_array2);
+        System.out.println("Sorted string array : "+Arrays.toString(my_array2));
+    }
+}
+
+//(2)Exercise 2//
+package work;
+
+import java.util.Scanner;
+public class Main {
+
+    public static void main(String[] Strings) {
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Input a value for inch: ");
+        double inch = input.nextDouble();
+        double meters = inch * 0.0254;
+        System.out.println(inch + " inch is " + meters + " meters");
+
+    }
+}
+
+//(2)Exercise 3//
+package work;
+
+public class Main {
+    public static void main(String[] args) {
+        int my_array[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int sum = 0;
+
+        for (int i : my_array)
+            sum += i;
+        System.out.println("The sum is " + sum);
+    }
+}
+
+//(2)Exercise 4//
+package work;
+
+import java.util.Arrays;
+public class Main {
+
+    static int max;
+    static int min;
+
+    public static void max_min(int my_array[]) {
+        max = my_array[0];
+        min = my_array[0];
+        int len = my_array.length;
+        for (int i = 1; i < len - 1; i = i + 2) {
+            if (i + 1 > len) {
+                if (my_array[i] > max) max = my_array[i];
+                if (my_array[i] < min) min = my_array[i];
+            }
+            if (my_array[i] > my_array[i + 1]) {
+                if (my_array[i] > max) max = my_array[i];
+                if (my_array[i + 1] < min) min = my_array[i + 1];
+            }
+            if (my_array[i] < my_array[i + 1]) {
+                if (my_array[i] < min) min = my_array[i];
+                if (my_array[i + 1] > max) max = my_array[i + 1];
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] my_array = {25, 14, 56, 15, 36, 56, 77, 18, 29, 49};
+        max_min(my_array);
+        System.out.println(" Original Array: "+Arrays.toString(my_array));
+        System.out.println(" Maximum value for the above array = " + max);
+        System.out.println(" Minimum value for the above array = " + min);
+    }
+}
